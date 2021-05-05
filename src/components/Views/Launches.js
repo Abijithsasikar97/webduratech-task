@@ -16,6 +16,7 @@ export const Launches = () => {
   }, []);
 
   const onSearch = (event) => {
+    setLoading(true);
     setShowClear(true);
     event.preventDefault();
     let flightNumber;
@@ -29,6 +30,7 @@ export const Launches = () => {
   };
 
   const clearSearch = () => {
+    setLoading(true);
     let inputValue = document.getElementById("search_input");
     inputValue.value = "";
     setShowClear(false);
