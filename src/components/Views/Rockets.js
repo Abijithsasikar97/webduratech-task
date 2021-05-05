@@ -16,6 +16,7 @@ export const Rockets = () => {
 
   const onSearch = (event) => {
     setShowClear(true);
+    setLoading(true);
     event.preventDefault();
     let rocketId;
     let rocketName = event.target.search_input.value;
@@ -28,6 +29,7 @@ export const Rockets = () => {
   };
 
   const clearSearch = () => {
+    setLoading(true);
     let inputValue = document.getElementById("search_input");
     inputValue.value = "";
     setShowClear(false);
