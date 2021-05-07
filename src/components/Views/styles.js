@@ -6,12 +6,20 @@ export const ContentSelector = styled.div`
   display: flex;
   justify-content: center;
 
+  @media (max-width: 768px) {
+    width: unset;
+  }
+
   button,
   input {
     border: none;
     padding: 10px;
     min-width: 100px;
     margin-right: 10px;
+
+    @media (max-width: 320px) {
+      min-width: unset;
+    }
   }
   input {
     border: 1px solid #000;

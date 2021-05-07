@@ -15,9 +15,11 @@ app.use(cors(corsOptions));
 
 app.get("/rockets", (req, res) => {
   let rocketId = req.query.rocketId;
+  let limitValue = req.query.limit;
+  let offset = req.query.offset;
   let url = rocketId
     ? `https://api.spacexdata.com/v3/rockets/${rocketId}`
-    : `https://api.spacexdata.com/v3/rockets/`;
+    : `https://api.spacexdata.com/v3/rockets?offset=${offset}&limit=${limitValue}`;
   axios
     .get(url)
     .then((response) => {
@@ -31,7 +33,7 @@ app.get("/rockets", (req, res) => {
 app.get("/launches", (req, res) => {
   let limitValue = req.query.limit;
   let flight_number = req.query.flightNumber;
-  let offset = req.query.offset
+  let offset = req.query.offset;
   let url = flight_number
     ? `https://api.spacexdata.com/v3/launches/${flight_number}`
     : `https://api.spacexdata.com/v3/launches/past?offset=${offset}&limit=${limitValue}`;

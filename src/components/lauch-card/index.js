@@ -8,9 +8,10 @@ const LaunchCardWrapper = styled.div`
   margin-bottom: 30px;
   margin-left: 20px;
   width: 100%;
-  flex: 0 0 calc(30.66%);
+  flex: 0 0 calc(29.66%);
   @media (max-width: 768px) {
     flex: unset;
+    margin-left: unset;
   }
 `;
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from 'react';
 import theme from "../../variables";
 
 import NavItem from "./nav-item";
@@ -6,6 +7,7 @@ import styled from "styled-components";
 
 import Burger, { BurgerMenu } from "./burger";
 import { device } from "../../helpers";
+import MobileMenu from "./MobileMenu";
 
 const navData = [
   { home: "launches" },
@@ -32,7 +34,8 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const navigation = () => {
+const Navigation = () => {
+  const [openMobileMenu, setOpenMenu] = useState(false);
   return (
     <>
       <NavWrapper>
@@ -51,10 +54,11 @@ const navigation = () => {
             );
           })}
         </NavList>
-        <Burger />
+        <Burger openMobileMenu={openMobileMenu} setOpenMenu={setOpenMenu} />
+        <MobileMenu openMobileMenu={openMobileMenu} setOpenMenu={setOpenMenu} />
       </NavWrapper>
     </>
   );
 };
 
-export default navigation;
+export default Navigation;
